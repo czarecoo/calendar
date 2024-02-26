@@ -1,0 +1,57 @@
+CREATE TABLE repetition_schedule (
+    id INT PRIMARY KEY,
+    start_date DATE NOT NULL,
+    end_date DATE,
+    count INT,
+    CONSTRAINT at_least_one_option_selected CHECK (
+        (end_date IS NOT NULL AND count IS NULL) OR
+        (end_date IS NULL AND count IS NULL) OR
+        (end_date IS NULL AND count IS NOT NULL AND count > 0)
+    )
+);
+
+________________________________________________________________
+
+location
+id		name	
+11		Wroclaw
+12		London
+13		Radom
+
+deviation_location_changed
+id		location_id
+101		11
+102		12
+
+appointment
+id	start_datetime		  end_datetime		   repetition_id deviation_id location_id
+1	2024-02-15  09:00:00  2024-02-15 10:00:00  401			 701		  13
+2	2024-02-15  09:00:00  2024-02-15 10:00:00  401			 NULL		  NULL
+3	2024-02-16  09:00:00  2024-02-16 10:00:00  401			 NULL		  11
+5	2024-02-15  09:00:00  2024-02-15 10:00:00  402			 702		  NULL
+6	2024-02-17  09:00:00  2024-02-17 10:00:00  NULL			 NULL		  NULL
+
+deviation
+id	 deviation_date_changed_id  deviation_cancelled_id  deviation_location_changed_id
+701  901						NULL					102
+702	 NULL						801						101
+703	 902						802						NULL
+
+
+________________________________________________________________
+
+weekday
+id	name
+1	Monday
+2	Tuesday
+3	Wednesday
+4	Thursday
+5	Friday
+6	Saturday
+7	Sunday
+
+repetition_properties_weekday
+id		repetition_properties_id	weekday_id
+301		401							1
+302		401							3
+303		401							5
