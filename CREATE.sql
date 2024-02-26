@@ -1,7 +1,7 @@
 CREATE TABLE deviation_date_changed (
     id INT PRIMARY KEY,
     new_start_datetime DATETIME NOT NULL,
-	new_end_datetime DATETIME NOT NULL,
+    new_end_datetime DATETIME NOT NULL,
     CONSTRAINT deviation_date_changed_end_after_start CHECK (new_end_datetime > new_start_datetime)
 );
 
