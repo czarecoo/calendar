@@ -1,8 +1,8 @@
 CREATE TABLE deviation_date_changed (
     id INT PRIMARY KEY,
     new_start_datetime DATETIME NOT NULL,
-    new_end_datetime DATETIME NOT NULL,
-	CONSTRAINT deviation_date_changed_end_after_start CHECK (new_end_datetime > new_start_datetime)
+	new_end_datetime DATETIME NOT NULL,
+    CONSTRAINT deviation_date_changed_end_after_start CHECK (new_end_datetime > new_start_datetime)
 );
 
 CREATE TABLE deviation_cancelled (
@@ -31,7 +31,7 @@ CREATE TABLE repetition_schedule (
     id INT PRIMARY KEY,
     start_date DATE NOT NULL,
     end_date DATE,
-	CONSTRAINT repetition_schedule_end_after_start CHECK (end_date IS NULL OR end_date > start_date)
+    CONSTRAINT repetition_schedule_end_after_start CHECK (end_date IS NULL OR end_date > start_date)
 );
 
 CREATE TABLE repetition (
@@ -53,5 +53,5 @@ CREATE TABLE appointment (
     CONSTRAINT fk_repetition FOREIGN KEY (repetition_id) REFERENCES repetition(id),
     CONSTRAINT fk_deviation FOREIGN KEY (deviation_id) REFERENCES deviation(id),
     CONSTRAINT unique_deviation_id UNIQUE (deviation_id),
-	CONSTRAINT appointment_end_after_start CHECK (end_datetime > start_datetime)
+    CONSTRAINT appointment_end_after_start CHECK (end_datetime > start_datetime)
 );

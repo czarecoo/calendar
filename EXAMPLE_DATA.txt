@@ -1,12 +1,12 @@
 deviation_date_changed
-id		new_start_datetime			new_end_datetime
-901		2024-03-01 	08:00:00		2024-03-01 11:00:00
-902		2024-03-02 	10:00:00		2024-03-02 12:00:00
+id		new_start_datetime		new_end_datetime
+901		2024-03-01 08:00:00		2024-03-01 11:00:00
+902		2024-03-02 10:00:00		2024-03-02 12:00:00
 
 deviation_cancelled
 id		cancellation_datetime
-801		2024-03-02 	10:00:00
-802		2024-03-02 	10:00:00
+801		2024-03-02 10:00:00
+802		2024-03-02 10:00:00
 
 deviation
 id		deviation_date_changed_id	deviation_cancelled_id
@@ -15,7 +15,7 @@ id		deviation_date_changed_id	deviation_cancelled_id
 703		902							802
 
 repetition_properties 
-id 		type		frequency
+id		type		frequency
 601		DAILY		1
 602		WEEKLY		4
 603		MONTHLY		1
@@ -26,14 +26,14 @@ id		start_date		end_date
 502		2024-02-15		NULL
 
 repetition
-id   	repetition_properties_id	repetition_schedule_id
-401     601							501
-402     602							502
+id		repetition_properties_id	repetition_schedule_id
+401		601							501
+402		602							502
 
 appointment
-id start_datetime end_datetime 					repetition_id deviation_id
-1  2024-02-15     09:00:00	2024-02-15 10:00:00	401			  701
-2  2024-02-15     09:00:00	2024-02-15 10:00:00	401			  NULL
-3  2024-02-16     09:00:00	2024-02-16 10:00:00	401			  NULL
-5  2024-02-15     09:00:00	2024-02-15 10:00:00	402			  702
-6  2024-02-17     09:00:00	2024-02-17 10:00:00	NULL		  NULL
+id	start_datetime			end_datetime			repetition_id	deviation_id
+1	2024-02-15 09:00:00		2024-02-15 10:00:00		401				701
+2	2024-02-15 09:00:00		2024-02-15 10:00:00		401				NULL
+3	2024-02-16 09:00:00		2024-02-16 10:00:00		401				NULL
+5	2024-02-15 09:00:00		2024-02-15 10:00:00		402				702
+6	2024-02-17 09:00:00		2024-02-17 10:00:00		NULL			NULL
